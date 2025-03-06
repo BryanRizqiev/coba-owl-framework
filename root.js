@@ -7,7 +7,11 @@ class Root extends Component {
       <input placeholder="Enter a new task" t-on-keyup="addTask" t-ref="add-input"/>
       <div class="task-list">
         <t t-foreach="displayedTasks" t-as="task" t-key="task.id">
-          <Task task="task"/>
+          <Task task="task">
+            <t t-set-slot="testing">
+              Task
+            </t>
+          </Task>
         </t>
       </div>
       <div class="task-panel" t-if="store.tasks.length">
